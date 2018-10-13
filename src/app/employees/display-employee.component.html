@@ -1,0 +1,161 @@
+<!-- Explain how to use <ng-content></ng-content> to apply accordion automatically to all card -->
+<app-accordion [title]="employee.name" [hasJustViewed]="_selectedEmployeeId === employee.id" [isHidden]="true">
+  <div class="col-xs-10 myPanelBody">
+    <div class="row">
+      <div class="col-xs-4 pointerCursor" (click)="onClick(employee.id)">
+        <img class="imageClass" [src]="employee.photoPath" />
+      </div>
+      <div class="col-xs-4">
+        <div class="row">
+          <div class="col-xs-6">
+            Gender
+          </div>
+          <div class="col-xs-6">
+            : {{employee.gender}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Date of Birth
+          </div>
+          <div class="col-xs-6">
+            : {{employee.dateOfBirth}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Contract Preference
+          </div>
+          <div class="col-xs-6">
+            : {{employee.contactPreference}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Phone
+          </div>
+          <div class="col-xs-6">
+            : {{employee.phoneNumber}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Email
+          </div>
+          <div class="col-xs-6">
+            : {{employee.email}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Department
+          </div>
+          <div class="col-xs-6" [ngSwitch]="employee.department">
+            :
+            <span *ngSwitchCase="1">Help Desk</span>
+            <span *ngSwitchCase="2">HR</span>
+            <span *ngSwitchCase="3">IT</span>
+            <span *ngSwitchCase="4">Payroll</span>
+            <span *ngSwitchDefault>Nothing</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Is Active
+          </div>
+          <div class="col-xs-6">
+            : {{employee.isActive}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="myPanelFooter">
+      <button class="btn btn-primary" (click)="viewEmployee()">View</button>
+      <button class="btn btn-primary" (click)="editEmployee()">Edit</button>
+      <button class="btn btn-danger" (click)="deleteEmployee()">Delete</button>
+  </div>
+</app-accordion>
+
+<div class="panel panel-primary" [class.panel-success]="_selectedEmployeeId === employee.id">
+  <div class="panel-heading pointerCursor">
+    <h3 class="panel-title">{{employee.name | uppercase}}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-xs-10">
+      <div class="row">
+        <div class="col-xs-4 pointerCursor" (click)="onClick(employee.id)">
+          <img class="imageClass" [src]="employee.photoPath" />
+        </div>
+        <div class="col-xs-4">
+          <div class="row">
+            <div class="col-xs-6">
+              Gender
+            </div>
+            <div class="col-xs-6">
+              : {{employee.gender}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              Date of Birth
+            </div>
+            <div class="col-xs-6">
+              : {{employee.dateOfBirth}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              Contract Preference
+            </div>
+            <div class="col-xs-6">
+              : {{employee.contactPreference}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              Phone
+            </div>
+            <div class="col-xs-6">
+              : {{employee.phoneNumber}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              Email
+            </div>
+            <div class="col-xs-6">
+              : {{employee.email}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              Department
+            </div>
+            <div class="col-xs-6" [ngSwitch]="employee.department">
+              :
+              <span *ngSwitchCase="1">Help Desk</span>
+              <span *ngSwitchCase="2">HR</span>
+              <span *ngSwitchCase="3">IT</span>
+              <span *ngSwitchCase="4">Payroll</span>
+              <span *ngSwitchDefault>Nothing</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              Is Active
+            </div>
+            <div class="col-xs-6">
+              : {{employee.isActive}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-primary" (click)="viewEmployee()">View</button>
+    <button class="btn btn-primary" (click)="editEmployee()">Edit</button>
+    <button class="btn btn-danger" (click)="deleteEmployee()">Delete</button>
+  </div>
+</div>

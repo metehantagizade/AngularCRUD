@@ -1,0 +1,16 @@
+.imageClass{
+    width: 200px;
+    height: 200px;
+}
+
+.pointerCursor {
+    cursor: pointer;
+}
+
+button.btn{
+    width: 70px;
+    margin-right: 5px;
+}
+.pointerCursor{
+    cursor: pointer;
+}

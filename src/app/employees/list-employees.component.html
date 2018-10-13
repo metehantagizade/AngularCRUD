@@ -1,0 +1,21 @@
+<div class="form-group">
+  <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Serach by name">
+</div>
+<div class="form-group">
+    <button (click)="changeEmployeeName()" class="btn btn-primary">Change Employee Name</button>
+  </div>
+<!-- Pass data from child to parent -->
+<h2 #h1Variable></h2>
+<div *ngFor="let employee of filterEmployees">
+  <div><a (click)="onClick(employee.id)">Detail</a></div>
+  <div (click)="h1Variable.innerHTML= childComponent.getEmployeeNameAndGender(); ">
+    <app-display-employee [employee]="employee" [searchTerm]="searchTerm" #childComponent (notifyDelete)="onDeleteNotification($event)"></app-display-employee>
+  </div>
+</div>
+<br>
+
+<button (click)="nextEmployee()" class="btn btn-primary">
+  View Next Employee
+</button>
+<br><br>
+<app-display-employee [employee]="employeeToDisplay"></app-display-employee>
